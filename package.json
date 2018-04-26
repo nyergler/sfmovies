@@ -26,6 +26,9 @@
     "start": "nodemon --ignore test/"
   },
   "dependencies": {
-    "hapi": "14.2.0"
+    "bookshelf": "^0.13.3",
+    "hapi": "14.2.0",
+    "knex": "^0.14.6",
+    "pg": "^7.4.1"
   }
 }
