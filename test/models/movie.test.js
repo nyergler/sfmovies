@@ -3,7 +3,9 @@
 const Movie = require('../../lib/models/movie');
 
 describe('movie model', () => {
+
   describe('serialize', () => {
+
     it('includes all required fields', () => {
       const movie = Movie.forge().serialize();
       expect(movie).to.have.all.keys([
@@ -13,5 +15,7 @@ describe('movie model', () => {
         'object'
       ]);
     });
+
   });
+
 });
