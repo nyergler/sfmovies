@@ -58,7 +58,7 @@ describe('movie controller', () => {
     });
 
     it('allows filtering by a range of years', () => {
-      return Controller.findAll({ release_year: [1986, 1996] })
+      return Controller.findAll({ released_after: 1985, released_before: 1997 })
         .then((result) => {
           expect(result.length).to.eql(2);
           expect(result.models.map((r) => r.attributes.title)).to.include.members([
@@ -77,7 +77,7 @@ describe('movie controller', () => {
     });
 
     it('supports fuzzy title search', () => {
-      return Controller.findAll({ title: { contains: 'o' } })
+      return Controller.findAll({ title_contains: 'o' })
         .then((result) => {
           expect(result.length).to.eql(2);
           expect(result.models.map((r) => r.attributes.title)).to.include.members([
