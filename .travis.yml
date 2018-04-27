@@ -8,6 +8,6 @@ before_script:
   - yarn db:setup:user
   - yarn db:reset
 script:
-  - npm test
-  - npm run enforce
-  - npm run lint
+  - yarn test
+  - yarn enforce
+  - yarn lint
