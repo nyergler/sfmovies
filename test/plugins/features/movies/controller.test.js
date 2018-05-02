@@ -13,7 +13,7 @@ describe('movie controller', () => {
   describe('create', () => {
 
     it('creates a movie', () => {
-      const payload = { title: 'Bullet' };
+      const payload = { title: 'Bullitt' };
 
       return Controller.create(payload)
         .then((movie) => {
@@ -85,6 +85,15 @@ describe('movie controller', () => {
             'The Rock'
           ]);
         });
+    });
+
+    it('populates name from title', () => {
+      const payload = { title: 'Bullitt' };
+
+      return Controller.create(payload)
+      .then((movie) => {
+        expect(movie.get('name')).to.eql(payload.title);
+      });
     });
 
   });
