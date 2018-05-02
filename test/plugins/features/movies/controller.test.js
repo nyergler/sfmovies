@@ -54,7 +54,7 @@ describe('movie controller', () => {
       return Controller.findAll({ release_year: 1986 })
         .then((result) => {
           expect(result.length).to.eql(1);
-          expect(result.models[0].attributes.title).to.eql('Star Trek IV: The Voyage Home');
+          expect(result.models[0].attributes.name).to.eql('Star Trek IV: The Voyage Home');
         });
     });
 
@@ -62,18 +62,18 @@ describe('movie controller', () => {
       return Controller.findAll({ released_after: 1985, released_before: 1997 })
         .then((result) => {
           expect(result.length).to.eql(2);
-          expect(result.models.map((r) => r.attributes.title)).to.include.members([
+          expect(result.models.map((r) => r.attributes.name)).to.include.members([
             'Star Trek IV: The Voyage Home',
             'The Rock'
           ]);
         });
     });
 
-    it('allows filtering by title', () => {
+    it('allows filtering by name', () => {
       return Controller.findAll({ title: 'Bullitt' })
         .then((result) => {
           expect(result.length).to.eql(1);
-          expect(result.models[0].attributes.title).to.eql('Bullitt');
+          expect(result.models[0].attributes.name).to.eql('Bullitt');
         });
     });
 
@@ -81,7 +81,7 @@ describe('movie controller', () => {
       return Controller.findAll({ title_contains: 'o' })
         .then((result) => {
           expect(result.length).to.eql(2);
-          expect(result.models.map((r) => r.attributes.title)).to.include.members([
+          expect(result.models.map((r) => r.attributes.name)).to.include.members([
             'Star Trek IV: The Voyage Home',
             'The Rock'
           ]);
